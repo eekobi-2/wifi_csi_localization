@@ -145,9 +145,9 @@ Therefore,
 
 computing
 
-\[
-H_iH_{ref}^{*}
-\]
+$$
+H_i H_{\mathrm{ref}}^{*}
+$$
 
 cancels most of the common phase errors.
 
@@ -222,17 +222,15 @@ Consider a single propagation path.
 
 The received signal can be written as
 
-\[
-H(f)
-=
-Ae^{-j2\pi f\tau}
-\]
+$$
+H(f) = A e^{-j2\pi f\tau}
+$$
 
 where
 
-- \(A\) is the complex attenuation,
-- \(f\) is the carrier frequency,
-- \(\tau\) is the propagation delay.
+- $A$ is the complex attenuation,
+- $f$ is the carrier frequency,
+- $\tau$ is the propagation delay.
 
 This equation immediately tells us
 
@@ -248,38 +246,28 @@ Instead,
 
 it transmits many OFDM subcarriers.
 
-The frequency of the \(k^{th}\) subcarrier is
+The frequency of the $k^{\text{th}}$ subcarrier is
 
-\[
-f_k
-=
-f_c
-+
-k\Delta f
-\]
+$$
+f_k = f_c + k\Delta f
+$$
 
 where
 
-- \(f_c\) is the center frequency,
-- \(\Delta f\) is the subcarrier spacing.
+-$f_c$ is the center frequency,
+- $\Delta f$ is the subcarrier spacing.
 
 Substituting into the CSI equation,
 
-\[
-H(k)
-=
-Ae^{-j2\pi(f_c+k\Delta f)\tau}
-\]
+$$
+H(k) = A e^{-j2\pi (f_c + k\Delta f)\tau}
+$$
 
 Taking the phase,
 
-\[
-\phi(k)
-=
--2\pi f_c\tau
--
-2\pi k\Delta f\tau
-\]
+$$
+\phi(k) = -2\pi f_c\tau - 2\pi k\Delta f\tau
+$$
 
 This equation is extremely important.
 
@@ -289,37 +277,27 @@ This equation is extremely important.
 
 Notice that
 
-\[
-\phi(k)
-=
--2\pi f_c\tau
--
-2\pi k\Delta f\tau
-\]
+$$
+\phi(k) = -2\pi f_c \tau - 2\pi k \Delta f\,\tau
+$$
 
 has the form
 
-\[
-\phi(k)
-=
-ak+b
-\]
+$$
+\phi(k) = ak + b
+$$
 
 where
 
-\[
-a
-=
--2\pi\Delta f\tau
-\]
+$$
+a = -2\pi \Delta f\,\tau
+$$
 
 and
 
-\[
-b
-=
--2\pi f_c\tau.
-\]
+$$
+b = -2\pi f_c\,\tau
+$$
 
 This means
 
@@ -337,29 +315,17 @@ Unfortunately,
 
 the measured CSI phase is not
 
-\[
-\phi_{true}.
-\]
+$$
+\phi_{\mathrm{true}}
+$$
 
 Commodity WiFi devices introduce several hardware impairments.
 
 The measured phase becomes
 
-\[
-\phi_{measured}
-=
-\phi_{true}
-+
-\phi_{SFO}
-+
-\phi_{PDD}
-+
-\phi_{CFO}
-+
-\phi_{offset}
-+
-n
-\]
+$$
+\phi_{\mathrm{measured}} = \phi_{\mathrm{true}} + \phi_{\mathrm{SFO}} + \phi_{\mathrm{PDD}} + \phi_{\mathrm{CFO}} + \phi_{\mathrm{offset}} + n
+$$
 
 where
 
@@ -367,7 +333,7 @@ where
 - PDD : Packet Detection Delay
 - CFO : Carrier Frequency Offset
 - Offset : Constant packet-dependent phase
-- \(n\) : Measurement noise
+- $n$ : Measurement noise
 
 These errors dominate the measured CSI phase.
 
@@ -428,19 +394,17 @@ For every received packet,
 
 SpotFi performs
 
-\[
-\phi(k)
-=
-ak+b
-\]
+$$
+\phi(k) = ak + b
+$$
 
 using linear regression.
 
 The estimated line
 
-\[
-ak+b
-\]
+$$
+ak + b
+$$
 
 represents
 
@@ -448,14 +412,9 @@ the hardware-induced distortion.
 
 The corrected phase becomes
 
-\[
-\phi_{corrected}
-=
-\phi_{measured}
--
-(ak+b).
-\]
-
+$$
+\phi_{\mathrm{corrected}} = \phi_{\mathrm{measured}} - (ak + b)
+$$
 This process is known as
 
 **Phase Sanitization**.
@@ -611,22 +570,22 @@ Instead of processing every CSI packet independently, SpotFi estimates their sta
 
 Suppose the measurement matrix is
 
-\[
-X=[x_1,x_2,\cdots,x_N]
-\]
+$$
+X = [x_1, x_2, \cdots, x_N]
+$$
 
 where each column represents one virtual array observation.
 
 The covariance matrix is computed as
 
-\[
-R=\frac{1}{N}XX^{H}
-\]
+$$
+R = \frac{1}{N} X X^{\mathrm{H}}
+$$
 
 where
 
-- \(N\) is the number of packets,
-- \(H\) denotes the Hermitian transpose.
+- $N$ is the number of packets,
+- $H$ denotes the Hermitian transpose.
 
 ---
 
@@ -662,14 +621,14 @@ The covariance matrix is therefore not a dimensionality reduction step. Instead,
 
 The covariance matrix is decomposed as
 
-\[
-R=U\Lambda U^{H}
-\]
+$$
+R = U \Lambda U^{\mathrm{H}}
+$$
 
 where
 
-- \(U\) contains the eigenvectors,
-- \(\Lambda\) contains the corresponding eigenvalues.
+- $U$ contains the eigenvectors,
+- $Lambda$ contains the corresponding eigenvalues.
 
 The eigenvalues naturally divide into two groups.
 
@@ -685,9 +644,9 @@ Small Eigenvalues
  Noise Subspace
 ```
 
-If there are \(L\) propagation paths,
+If there are $L$ propagation paths,
 
-the first \(L\) eigenvectors span the signal subspace,
+the first $L$ eigenvectors span the signal subspace,
 
 while the remaining eigenvectors span the noise subspace.
 
@@ -711,9 +670,9 @@ Instead of solving this directly,
 
 SpotFi evaluates every possible pair
 
-\[
-(\theta,\tau).
-\]
+$$
+(\theta, \tau)
+$$
 
 ---
 
@@ -721,9 +680,9 @@ SpotFi evaluates every possible pair
 
 Suppose a candidate steering vector is
 
-\[
-a(\theta,\tau).
-\]
+$$
+a(\theta, \tau)
+$$
 
 If this candidate corresponds to a true propagation path,
 
@@ -735,13 +694,13 @@ it becomes orthogonal to the noise subspace.
 
 Mathematically,
 
-\[
-a^{H}E_n\approx0
-\]
+$$
+a^{\mathrm{H}} E_n \approx 0
+$$
 
 where
 
-- \(E_n\) is the matrix containing the noise eigenvectors.
+- $E_n$ is the matrix containing the noise eigenvectors.
 
 This simple observation forms the basis of MUSIC.
 
@@ -751,18 +710,19 @@ This simple observation forms the basis of MUSIC.
 
 The likelihood of a propagation path is computed using
 
-\[
-P(\theta,\tau)=
-\frac{1}
-{a^{H}(\theta,\tau)
-E_nE_n^{H}
-a(\theta,\tau)}
-\]
+$$
+P(\theta, \tau) =
+\frac{1}{
+a^{\mathrm{H}}(\theta, \tau)\,
+E_n E_n^{\mathrm{H}}\,
+a(\theta, \tau)
+}
+$$
 
 where
 
-- \(a(\theta,\tau)\) is the joint AoA-ToF steering vector,
-- \(E_n\) is the noise subspace.
+- $a(\theta, \tau)$ is the joint AoA-ToF steering vector,
+-$E_n$ is the noise subspace.
 
 If the steering vector aligns with a true signal,
 
