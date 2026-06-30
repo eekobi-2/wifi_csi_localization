@@ -268,8 +268,8 @@ $$
 
 where
 
-- $*$ denotes convolution,
-- $h(t)$ is the channel impulse response.
+- $$*$$ denotes convolution,
+- $$h(t)$$ is the channel impulse response.
 
 The channel therefore contains the combined effect of
 
