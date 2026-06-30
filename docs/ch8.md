@@ -464,14 +464,14 @@ During training,
 
 the network minimizes the reconstruction error
 
-\[
-L=\|X-\hat{X}\|_2^2
-\]
+$$
+L = \|X - \hat{X}\|_2^2
+$$
 
 where
 
-- \(X\) is the original CSI,
-- \(\hat{X}\) is the reconstructed CSI.
+- $X$ is the original CSI,
+- $\hat{X}$ is the reconstructed CSI.
 
 The bottleneck layer forces the network to compress the high-dimensional CSI into a lower-dimensional latent representation while preserving the essential characteristics of the wireless channel.
 
