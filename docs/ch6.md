@@ -703,7 +703,7 @@ where
 Therefore
 
 $$
-\beta = 1000 \times \operatorname{Average}(\alpha)
+\beta = 1000 \times \mathrm{Average}(\alpha)
 $$
 
 Notice that Widar deliberately multiplies the average by
