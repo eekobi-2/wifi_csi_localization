@@ -154,12 +154,15 @@ then
 $$
 \int_{0}^{T}
 e^{j2\pi f_i t}
-e^{-j2\pi f_j t}\,dt
-=
-\begin{cases}
-T, & i = j,\\[4pt]
-0, & i \ne j.
-\end{cases}
+e^{-j2\pi f_j t}\,dt = T,
+\qquad i=j
+$$
+
+$$
+\int_{0}^{T}
+e^{j2\pi f_i t}
+e^{-j2\pi f_j t}\,dt = 0,
+\qquad i\ne j
 $$
 
 This orthogonality allows
@@ -270,14 +273,13 @@ the sampled Channel Frequency Response.
 Mathematically,
 
 $$
-\mathrm{CSI}
-=
-\left\{
-H(f_1),\,
-H(f_2),\,
-\ldots,\,
+\mathrm{CSI} =
+\begin{bmatrix}
+H(f_1) \\
+H(f_2) \\
+\vdots \\
 H(f_N)
-\right\}
+\end{bmatrix}
 $$
 
 Each CSI value is a
@@ -285,10 +287,7 @@ Each CSI value is a
 **complex number**
 
 $$
-H
-=
-A
-e^{j\phi}
+H = A e^{j\phi}
 $$
 
 where
