@@ -616,9 +616,7 @@ exp(1j*angle(csi_data(:,jj)))
 giving
 
 $$
-H_{\text{adj}}
-=
-(|H|-\alpha)e^{j\phi}.
+H_{\mathrm{adj}} = (|H| - \alpha)e^{j\phi}
 $$
 
 ---
