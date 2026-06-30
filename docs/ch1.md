@@ -188,22 +188,18 @@ for autonomous indoor drone navigation.
 # 5. Repository Structure
 
 ```text
-wifi-csi-research/
+wifi_csi_localization/
 
 README.md
 
 docs/
-    WiFi_CSI_Research_Notebook.md
+    
 
-notebooks/
-
-src/
+code/
 
 data/
 
-models/
-
-results/
+model_results/
 ```
 
 ---
