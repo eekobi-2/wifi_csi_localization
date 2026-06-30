@@ -221,12 +221,7 @@ describes the channel in time.
 Taking its Fourier Transform gives
 
 $$
-H(f)
-=
-\mathcal F
-\{
-h(t)
-\}
+H(f) =\mathcal {F}\{h(t)\}
 $$
 
 called the
