@@ -905,8 +905,8 @@ Therefore,
 
 for
 
-- $N$ packets,
-- $S$ CSI streams,
+- $$N$$ packets,
+- $$S$$ CSI streams,
 
 the computational complexity is
 
