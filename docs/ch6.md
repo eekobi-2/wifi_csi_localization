@@ -703,11 +703,7 @@ where
 Therefore
 
 $$
-\beta
-=
-1000
-\times
-\text{Average}(\alpha).
+\beta = 1000 \times \operatorname{Average}(\alpha)
 $$
 
 Notice that Widar deliberately multiplies the average by
@@ -727,9 +723,7 @@ This immediately raises another question.
 The adjusted reference antenna becomes
 
 $$
-H_{\text{ref}}
-=
-(|H|+\beta)e^{j\phi}.
+H_{\mathrm{ref}} = (|H| + \beta)e^{j\phi}
 $$
 
 Unlike the previous operation,
@@ -772,9 +766,7 @@ but the magnitude becomes significantly larger.
 The next stage computes
 
 $$
-H_i
-\cdot
-H_{\text{ref}}^{*}
+H_i \cdot H_{\mathrm{ref}}^{*}
 $$
 
 where
@@ -809,18 +801,13 @@ $$
 After amplitude adjustment,
 
 $$
-H'
-=
-A'
-e^{j\phi}.
+H^{\prime} = A^{\prime} e^{j\phi}
 $$
 
 Therefore
 
 $$
-\angle(H')
-=
-\phi.
+\angle\!\left(H^{\prime}\right) = \phi
 $$
 
 Only the amplitude changes.
@@ -1036,8 +1023,8 @@ $$
 
 where
 
-- $A$ denotes amplitude
-- $\phi$ denotes phase.
+-$$A$$ denotes amplitude
+- $$\phi$$ denotes phase.
 
 Our objective is to compare these two signals.
 
@@ -1122,17 +1109,13 @@ $$
 Substituting the two CSI measurements,
 
 $$
-=
-A_de^{j\phi_d}
-\cdot
-A_re^{-j\phi_r}
+= A_d e^{j\phi_d} \cdot A_r e^{-j\phi_r}
 $$
 
 Combining amplitudes,
 
 $$
-=A_dA_r
-e^{j(\phi_d-\phi_r)}
+= A_d A_r e^{j(\phi_d - \phi_r)}
 $$
 
 This equation is extremely important.
@@ -1146,9 +1129,7 @@ the multiplication preserves only
 their **difference**
 
 $$
-\Delta\phi
-=
-\phi_d-\phi_r.
+\Delta\phi = \phi_d - \phi_r
 $$
 
 ---
@@ -1203,31 +1184,19 @@ Many of these errors are **common** to all receive antennas because they origina
 Suppose
 
 $$
-\phi_d
-=
-\phi_{true}
-+
-\phi_{noise}
+\phi_d = \phi_{\mathrm{true}} + \phi_{\mathrm{noise}}
 $$
 
 and
 
 $$
-\phi_r
-=
-\phi_{ref}
-+
-\phi_{noise}.
+\phi_r = \phi_{\mathrm{ref}} + \phi_{\mathrm{noise}}
 $$
 
 Then
 
 $$
-\phi_d-\phi_r
-=
-\phi_{true}
--
-\phi_{ref}.
+\phi_d - \phi_r = \phi_{\mathrm{true}} - \phi_{\mathrm{ref}}
 $$
 
 The common hardware phase
@@ -1452,8 +1421,8 @@ Therefore,
 
 for
 
-- $N$ packets,
-- $S$ streams,
+- $$N$$ packets,
+- $$S$$ streams,
 
 the complexity is
 
@@ -2196,14 +2165,12 @@ Mathematically,
 the CSI matrix can be written as
 
 $$
-X
-\in
-\mathbb{C}^{N \times 60}
+X \in \mathbb{C}^{N \times 60}
 $$
 
 where
 
-- $N$ is the number of packets,
+- $$N$$ is the number of packets,
 - 60 is the number of filtered CSI streams.
 
 Each column represents
@@ -2255,14 +2222,12 @@ $$
 the covariance matrix is
 
 $$
-R
-=
-X^H X
+R = X^{H} X
 $$
 
 where
 
-- $H$ denotes the Hermitian transpose (conjugate transpose).
+- $$H$$ denotes the Hermitian transpose (conjugate transpose).
 
 Unlike real-valued PCA,
 
@@ -2282,15 +2247,13 @@ Next,
 PCA solves
 
 $$
-R v_i
-=
-\lambda_i v_i
+R v_i = \lambda_i v_i
 $$
 
 where
 
-- $\lambda_i$ is an eigenvalue,
-- $v_i$ is the corresponding eigenvector.
+- $$\lambda_i$$ is an eigenvalue,
+- $$v_i$$ is the corresponding eigenvector.
 
 Each eigenvector defines
 
@@ -2323,9 +2286,7 @@ Widar keeps only this eigenvector.
 The filtered CSI is projected onto it.
 
 $$
-y
-=
-Xv_1
+y = X v_1
 $$
 
 The result is
@@ -2907,11 +2868,7 @@ $$
 Instead of computing
 
 $$
-X(f)
-=
-\sum_n
-x[n]
-e^{-j2\pi fn},
+X(f) = \sum_{n} x[n]\,e^{-j2\pi f n}
 $$
 
 we first multiply the signal by a window
@@ -2923,12 +2880,7 @@ $$
 The resulting transform becomes
 
 $$
-STFT(t,f)
-=
-\sum_n
-x[n]
-w[n-t]
-e^{-j2\pi fn}.
+\mathrm{STFT}(t, f) = \sum_{n=-\infty}^{\infty} x[n]\,w[n - t]\,e^{-j2\pi f n}
 $$
 
 The window
@@ -3491,10 +3443,7 @@ This is the physical bridge between geometry and Doppler.
 The Doppler frequency is given by
 
 $$
-f_D
-=
-\frac{\mathbf{A}\mathbf{v}}
-{\lambda}
+f_D = \frac{\mathbf{A}\mathbf{v}}{\lambda}
 $$
 
 where
@@ -4131,9 +4080,9 @@ This is the geometric bridge between velocity and Doppler.
 For a given velocity
 
 $$
-\mathbf v=
+\mathbf{v} =
 \begin{bmatrix}
-v_x\\
+v_x \\
 v_y
 \end{bmatrix}
 $$
@@ -4141,9 +4090,7 @@ $$
 the expected Doppler frequency becomes
 
 $$
-f_D
-=
-\frac{A\mathbf v}{\lambda}
+f_D = \frac{A\mathbf{v}}{\lambda}
 $$
 
 where
