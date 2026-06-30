@@ -288,9 +288,7 @@ This observation is fundamental.
 
 Modern WiFi does not estimate
 
-$$
-h(t)
-$$
+$$ h(t) $$
 
 directly.
 
@@ -299,12 +297,7 @@ Instead,
 it estimates its Fourier Transform
 
 $$
-H(f)
-=
-\mathcal{F}
-\{
-h(t)
-\}
+H(f) = \mathcal{F}\{h(t)\}
 $$
 
 This frequency-domain representation is called the
