@@ -152,14 +152,14 @@ $$
 then
 
 $$
-\int_0^T
+\int_{0}^{T}
 e^{j2\pi f_i t}
-e^{-j2\pi f_j t}
-dt
+e^{-j2\pi f_j t}\,dt
 =
-0
-\quad
-(i\neq j)
+\begin{cases}
+T, & i = j,\\[4pt]
+0, & i \ne j.
+\end{cases}
 $$
 
 This orthogonality allows
@@ -221,7 +221,8 @@ describes the channel in time.
 Taking its Fourier Transform gives
 
 $$
-H(f) =\mathcal {F}\{h(t)\}
+H(f) = \mathcal{F}\{h(t)\}
+      = \int_{-\infty}^{\infty} h(t)\,e^{-j2\pi ft}\,dt
 $$
 
 called the
@@ -269,14 +270,14 @@ the sampled Channel Frequency Response.
 Mathematically,
 
 $$
-CSI
+\mathrm{CSI}
 =
-\{
-H(f_1),
-H(f_2),
-...
+\left\{
+H(f_1),\,
+H(f_2),\,
+\ldots,\,
 H(f_N)
-\}
+\right\}
 $$
 
 Each CSI value is a
@@ -292,8 +293,8 @@ $$
 
 where
 
-- $A$ is the signal amplitude
-- $\phi$ is the signal phase
+- $$A$$ is the signal amplitude
+- $$\phi$$ is the signal phase
 
 Both quantities contain physical information.
 
