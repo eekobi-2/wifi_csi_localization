@@ -512,24 +512,6 @@ May fail when environment changes.
 
 After selecting the reference antenna, Widar performs an amplitude calibration step before computing the conjugate multiplication.
 
-The MATLAB implementation is surprisingly simple.
-
-```matlab
-alpha = min(amp(amp~=0));
-
-csi_data_adj(:,jj) = abs(abs(csi_data(:,jj))-alpha) ...
-                    .* exp(1j*angle(csi_data(:,jj)));
-
-...
-
-beta = 1000 * alpha_sum / (30 * rx_acnt);
-
-csi_data_ref_adj(:,jj) =
-    (abs(csi_data_ref(:,jj))+beta)
-    .* exp(1j*angle(csi_data_ref(:,jj)));
-```
-
-At first glance, these operations appear arbitrary.
 
 Why should subtracting the minimum amplitude improve Doppler estimation?
 
