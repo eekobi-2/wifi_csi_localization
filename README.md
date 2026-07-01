@@ -149,27 +149,11 @@ application.
 
 ## Comparing the major approaches
 
-  ----------------------------------------------------------------------------------------
-  Method    Core idea       Advantages        Major achievements    Limitations
-  --------- --------------- ----------------- --------------------- ----------------------
-  SpotFi    Estimate AoA    Physically        \~40 cm localization  Sensitive to phase
-            and ToF from    interpretable, no with commodity WiFi   errors, multipath and
-            CSI for         fingerprint                             calibration
-            geometric       database                                
-            localization                                            
-
-  DeepFi    Learn CSI       Learns complex    Better than RSS       Requires extensive
-            fingerprints    channel           fingerprinting        training and
-            using deep      characteristics                         environment-specific
-            learning        automatically                           calibration
-
-  WiFi      Comprehensive   Shows strengths   Unified understanding Highlights unresolved
-  Sensing   overview of CSI and weaknesses    of CSI sensing        challenges such as
-  Survey    sensing methods across the field                        robustness and
-                                                                    generalization
-  ----------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------
+| Method | Core idea | Advantages | Major achievements | Limitations |
+|--------|-----------|------------|--------------------|-------------|
+| **SpotFi** | Estimate AoA and ToF from CSI for geometric localization | Physically interpretable, no fingerprint database | ~40 cm localization with commodity WiFi | Sensitive to phase errors, multipath, and calibration |
+| **DeepFi** | Learn CSI fingerprints using deep learning | Learns complex channel characteristics automatically | Better than RSS fingerprinting | Requires extensive training and environment-specific calibration |
+| **WiFi Sensing Survey** | Comprehensive overview of CSI sensing methods | Shows strengths and weaknesses across the field | Unified understanding of CSI sensing | Highlights unresolved challenges such as robustness and generalization |
 
 ## My takeaway
 
@@ -237,7 +221,7 @@ The Python pipeline
 
 -   loads Widar samples,
 -   extracts simple statistical features,
--   trains a Random Forest classifier,
+-   trains a classifier,
 -   predicts room/location labels,
 -   evaluates accuracy and feature importance.
 
