@@ -148,12 +148,14 @@ application.
 ------------------------------------------------------------------------
 
 ## Comparing the major approaches
+------------------------------------------------------------------------
 
 | Method | Core idea | Advantages | Major achievements | Limitations |
 |--------|-----------|------------|--------------------|-------------|
 | **SpotFi** | Estimate AoA and ToF from CSI for geometric localization | Physically interpretable, no fingerprint database | ~40 cm localization with commodity WiFi | Sensitive to phase errors, multipath, and calibration |
 | **DeepFi** | Learn CSI fingerprints using deep learning | Learns complex channel characteristics automatically | Better than RSS fingerprinting | Requires extensive training and environment-specific calibration |
 | **WiFi Sensing Survey** | Comprehensive overview of CSI sensing methods | Shows strengths and weaknesses across the field | Unified understanding of CSI sensing | Highlights unresolved challenges such as robustness and generalization |
+------------------------------------------------------------------------
 
 ## My takeaway
 
