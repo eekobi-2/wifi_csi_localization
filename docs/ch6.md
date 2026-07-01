@@ -445,11 +445,6 @@ Best reference
 
 Explain why.
 
----
-
-## Why not use maximum amplitude?
-
-Explain.
 
 ---
 
@@ -482,12 +477,6 @@ Score
 ↓
 
 argmax
-
----
-
-## Plots
-
-
 
 ---
 
