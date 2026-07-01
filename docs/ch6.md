@@ -443,8 +443,6 @@ Large μ/σ
 
 Best reference
 
-Explain why.
-
 
 ---
 
